@@ -12,7 +12,7 @@ app = Flask(__name__)
 CORS(app, origins="*", supports_credentials=False)
 
 # Configure Gemini API
-API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyACGgLY1ViodtE22WAa88e4Hudz8wMmovQ")
+API_KEY = os.getenv("GEMINI_API_KEY", "")# Paste you api key here as a second paramter
 if not API_KEY:
     raise ValueError("GEMINI_API_KEY is missing. Please check your .env file.")
 
@@ -31,7 +31,7 @@ def extract_text_from_pdf(pdf_file):
 def analyze_resume(resume_text):
     """Send resume text to Gemini AI for analysis."""
     try:
-        model = genai.GenerativeModel("gemini-1.5-flash")
+        model = genai.GenerativeModel("gemini-1.5-flash") # model you are using
         prompt = (
             "Analyze the following resume and identify issues, missing sections, "
             "or areas of improvement. Provide feedback on formatting, clarity, "
