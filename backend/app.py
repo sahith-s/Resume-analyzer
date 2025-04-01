@@ -12,7 +12,7 @@ app = Flask(__name__)
 CORS(app, origins="*", supports_credentials=False)
 
 # Configure Gemini API
-API_KEY = os.getenv("GEMINI_API_KEY", "")# Paste you api key here as a second paramter
+API_KEY = os.getenv("GEMINI_API_KEY")
 if not API_KEY:
     raise ValueError("GEMINI_API_KEY is missing. Please check your .env file.")
 
